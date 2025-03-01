@@ -2,68 +2,68 @@
 
 //Nodos
 // Crear usuarios
-CREATE (:Usuario {id_usuario: "usuario", nombre: "nombre", apellido: "apellido", fecha_nacimiento: date(""), telefono: "telefono", email: "juan@example.com", pais: "pais", ciudad: "ciudad", nit: "123456789", fecha_registro: date("")});
+MERGE (:Usuario {id_usuario: "usuario", nombre: "nombre", apellido: "apellido", fecha_nacimiento: date(""), telefono: "telefono", email: "juan@example.com", pais: "pais", ciudad: "ciudad", nit: "123456789", fecha_registro: date("")});
 
 // Crear cuentas
-CREATE (:Cuenta {id_cuenta: "cuenta", tipo: "tipo", saldo: 0, fecha_apertura: date(""), fecha_cierre: null, estado: "estado"});
+MERGE (:Cuenta {id_cuenta: "cuenta", tipo: "tipo", saldo: 0, fecha_apertura: date(""), fecha_cierre: null, estado: "estado"});
 
 // Crear bancos
-CREATE (:Banco {id_banco: "banco", nombre: "nombre", pais: "pais", direccion: "zona", telefono: "22223333", sitio_web: "www.bancox.com"});
+MERGE (:Banco {id_banco: "banco", nombre: "nombre", pais: "pais", direccion: "zona", telefono: "22223333", sitio_web: "www.bancox.com"});
 
 // Crear transacciones
-CREATE (:Transaccion {id_transaccion: "transaccion", monto: 150, moneda_tipo: "moneda", fecha_hora: datetime(""), motivo: "motivo"});
+MERGE (:Transaccion {id_transaccion: "transaccion", monto: 150, moneda_tipo: "moneda", fecha_hora: datetime(""), motivo: "motivo"});
 
 // Crear empresas
-CREATE (:Empresa {id_empresa: "empresa", nombre: "empresa", tipo: "tipo", sector: "sector", pais: "pais", telefono: "55556666", email: "empresa@example.com", direccion: "direccion"});
+MERGE (:Empresa {id_empresa: "empresa", nombre: "empresa", tipo: "tipo", sector: "sector", pais: "pais", telefono: "55556666", email: "empresa@example.com", direccion: "direccion"});
 
 // Crear tarjetas
-CREATE (:Tarjeta {id_tarjeta: "tarjeta", tipo: "tipo", contactless: true, marca: "marca", fecha_expiracion: date(""), estado: "estado", numero: "1234-5678-9012-3456"});
+MERGE (:Tarjeta {id_tarjeta: "tarjeta", tipo: "tipo", contactless: true, marca: "marca", fecha_expiracion: date(""), estado: "estado", numero: "1234-5678-9012-3456"});
 
 
 // Crear dispositivos
-CREATE (:Dispositivo {id_dispositivo: "dispotivo", tipo: "tipo", marca: "marca", modelo: "modelo", sistema_operativo: "os", fecha_ultimo_uso: datetime("")});
+MERGE (:Dispositivo {id_dispositivo: "dispotivo", tipo: "tipo", marca: "marca", modelo: "modelo", sistema_operativo: "os", fecha_ultimo_uso: datetime("")});
 
 //Relaciones
 
 //Usuario → TIENE → Cuenta
 MATCH (u:Usuario {id_usuario: "usuario"}), (c:Cuenta {id_cuenta: "cuenta"})
-CREATE (u)-[:TIENE {status: "status", cliente_vip: true, seguro: true}]->(c);
+MERGE (u)-[:TIENE {status: "status", cliente_vip: true, seguro: true}]->(c);
 
 //Transacción → DESTINO → Cuenta
 MATCH (t:Transaccion {id_transaccion: "trans"}), (c:Cuenta {id_cuenta: "cuenta"})
-CREATE (t)-[:DESTINO {tiempo_transferencia: time("00:30:00"), confirmada_por_destino: true, internacional: false}]->(c);
+MERGE (t)-[:DESTINO {tiempo_transferencia: time("00:30:00"), confirmada_por_destino: true, internacional: false}]->(c);
 
 //Banco → PROVEE → Cuenta
 MATCH (b:Banco {id_banco: "banco"}), (c:Cuenta {id_cuenta: "cuenta"})
-CREATE (b)-[:PROVEE {sucursal_origen: "eucursal", actividad_reciente: true, networking: true}]->(c);
+MERGE (b)-[:PROVEE {sucursal_origen: "eucursal", actividad_reciente: true, networking: true}]->(c);
 
 //Banco → CONEXION_CON → Banco
 MATCH (b1:Banco {id_banco: "banco1"}), (b2:Banco {id_banco: "banco2"})
-CREATE (b1)-[:CONEXION_CON {tipo_conexion: "tipo", monto_total_movido: 500000, frecuencia_transacciones: 100}]->(b2);
+MERGE (b1)-[:CONEXION_CON {tipo_conexion: "tipo", monto_total_movido: 500000, frecuencia_transacciones: 100}]->(b2);
 
 //Empresa → TIENE → Cuenta
 MATCH (e:Empresa {id_empresa: "empresa"}), (c:Cuenta {id_cuenta: "cuenta"})
-CREATE (e)-[:TIENE {cliente_vip: false, status: "status", seguro: true}]->(c);
+MERGE (e)-[:TIENE {cliente_vip: false, status: "status", seguro: true}]->(c);
 
 //Tarjeta → ASOCIADA_A → Cuenta
 MATCH (t:Tarjeta {id_tarjeta: "tarjeta"}), (c:Cuenta {id_cuenta: "cuenta"})
-CREATE (t)-[:ASOCIADA_A {limite_credito: 10000, numero_de_uso: 5, fecha_asociacion: date("")}]->(c);
+MERGE (t)-[:ASOCIADA_A {limite_credito: 10000, numero_de_uso: 5, fecha_asociacion: date("")}]->(c);
 
 //Dispositivo → USADO_EN → Transacción
 MATCH (d:Dispositivo {id_dispositivo: "dispositivo"}), (t:Transaccion {id_transaccion: "transaccion"})
-CREATE (d)-[:USADO_EN {conexion: "con", ip_asociados: ["192.168.1.1", "10.0.0.2"], ubicacion: "ubicacion"}]->(t);
+MERGE (d)-[:USADO_EN {conexion: "con", ip_asociados: ["192.168.1.1", "10.0.0.2"], ubicacion: "ubicacion"}]->(t);
 
 //Tarjeta → REALIZA → Transacción
 MATCH (t:Tarjeta {id_tarjeta: "tarjeta"}), (tx:Transaccion {id_transaccion: "transaccion"})
-CREATE (t)-[:REALIZA {aprobada: true, tiempo_ejecucion: 0, nit: "nit"}]->(tx);
+MERGE (t)-[:REALIZA {aprobada: true, tiempo_ejecucion: 0, nit: "nit"}]->(tx);
 
 //Usuario → POSEE → Dispositivo
 MATCH (u:Usuario {id_usuario: "usuario"}), (d:Dispositivo {id_dispositivo: "dispositivo"})
-CREATE (u)-[:POSEE {huella_dactilar: true, reconocimiento_facial: false, ubicaciones: ["Casa", "Oficina"]}]->(d);
+MERGE (u)-[:POSEE {huella_dactilar: true, reconocimiento_facial: false, ubicaciones: ["Casa", "Oficina"]}]->(d);
 
 //Usuario → PROPIETARIO → Tarjeta
 MATCH (u:Usuario {id_usuario: "usaer"}), (t:Tarjeta {id_tarjeta: "tarjeta"})
-CREATE (u)-[:PROPIETARIO {chip: true, tiempo_de_uso: time("02:00:00"), membresia: "mem"}]->(t);
+MERGE (u)-[:PROPIETARIO {chip: true, tiempo_de_uso: time("02:00:00"), membresia: "mem"}]->(t);
 
 
 //READ
