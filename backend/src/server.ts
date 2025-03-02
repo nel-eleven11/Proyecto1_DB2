@@ -10,6 +10,8 @@ import account_router from "./routes/account_router";
 import card_router from "./routes/card_routes";
 import device_router from "./routes/device_routes";
 import transaction_router from "./routes/transaction_routes";
+import { authMiddleware } from "./middleware/authMiddleware";
+import auth_router from "./routes/auth_router";
 
 const PORT: number = process.env.RPPORT as unknown as number || 8080;
 const HOST: string = process.env.RPHOST || "0.0.0.0";
@@ -21,13 +23,14 @@ app.use(cors());
 app.use(helmet());
 app.use(json());
 
-app.use('/api/v1/bank', bank_router);
-app.use('/api/v1/user', user_router);
-app.use('/api/v1/enterprise', enterprise_router);
-app.use('/api/v1/account', account_router);
-app.use('/api/v1/card', card_router);
-app.use('/api/v1/device', device_router);
-app.use('/api/v1/transaction', transaction_router);
+app.use('/api/v1/auth', auth_router)
+app.use('/api/v1/bank', authMiddleware, bank_router);
+app.use('/api/v1/user', authMiddleware, user_router);
+app.use('/api/v1/enterprise', authMiddleware, enterprise_router);
+app.use('/api/v1/account', authMiddleware, account_router);
+app.use('/api/v1/card', authMiddleware, card_router);
+app.use('/api/v1/device', authMiddleware, device_router);
+app.use('/api/v1/transaction', authMiddleware, transaction_router);
 
 app.listen(PORT, HOST, () => {
     console.log(`Server up n' running on port ${HOST}:${PORT}`)
