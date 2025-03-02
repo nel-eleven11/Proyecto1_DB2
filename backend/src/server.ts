@@ -12,6 +12,7 @@ import device_router from "./routes/device_routes";
 import transaction_router from "./routes/transaction_routes";
 import { authMiddleware } from "./middleware/authMiddleware";
 import auth_router from "./routes/auth_router";
+import healthcheck_router from "./routes/healthcheck_router";
 
 const PORT: number = process.env.RPPORT as unknown as number || 8080;
 const HOST: string = process.env.RPHOST || "0.0.0.0";
@@ -23,6 +24,7 @@ app.use(cors());
 app.use(helmet());
 app.use(json());
 
+app.use('/api/v1/healthcheck', healthcheck_router)
 app.use('/api/v1/auth', auth_router)
 app.use('/api/v1/bank', authMiddleware, bank_router);
 app.use('/api/v1/user', authMiddleware, user_router);

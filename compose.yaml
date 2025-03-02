@@ -1,0 +1,31 @@
+services:
+  #  client:
+  #    build: 
+  #      context: ./
+  #      dockerfile: GestorDocumental-FrontEnd/Dockerfile
+  #    container_name: angular_client
+  #    volumes:
+  #    - ./GestorDocumental-FrontEnd:/src/app
+  #    ports:
+  #      - "3400:4200"
+  #    depends_on:
+  #      app:
+  #        condition: service_healthy
+
+  app:
+    build: 
+      context: ./
+      dockerfile: backend/Dockerfile
+    container_name: bun_app
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./backend/.env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
