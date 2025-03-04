@@ -1,0 +1,177 @@
+// Cargar csvs delos nodos
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+CREATE (:Usuario {
+    id_usuario: row.id_usuario,
+    nombre: row.nombre,
+    apellido: row.apellido,
+    fecha_nacimiento: date(row.fecha_nacimiento),
+    telefono: row.telefono,
+    email: row.email,
+    pais: row.pais,
+    ciudad: row.ciudad,
+    nit: row.nit,
+    fecha_registro: date(row.fecha_registro)
+});
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+CREATE (:Cuenta {
+    id_cuenta: row.id_cuenta,
+    tipo: row.tipo,
+    saldo: toInteger(row.saldo),
+    fecha_apertura: date(row.fecha_apertura),
+    fecha_cierre: date(row.fecha_cierre),
+    estado: row.estado
+});
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+CREATE (:Banco {
+    id_banco: row.id_banco,
+    nombre: row.nombre,
+    pais: row.pais,
+    direccion: row.direccion,
+    telefono: row.telefono,
+    sitio_web: row.sitio_web
+});
+
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+CREATE (:Transaccion {
+    id_transaccion: row.id_transaccion,
+    monto: toInteger(row.monto),
+    moneda_tipo: row.moneda_tipo,
+    fecha_hora: datetime(row.fecha_hora),
+    motivo: row.motivo
+});
+
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+CREATE (:Empresa {
+    id_empresa: row.id_empresa,
+    nombre: row.nombre,
+    tipo: row.tipo,
+    sector: row.sector,
+    pais: row.pais,
+    telefono: row.telefono,
+    email: row.email,
+    direccion: row.direccion
+});
+
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+CREATE (:Tarjeta {
+    id_tarjeta: row.id_tarjeta,
+    tipo: row.tipo,
+    contactless: toBoolean(row.contactless),
+    marca: row.marca,
+    fecha_expiracion: date(row.fecha_expiracion),
+    estado: row.estado,
+    numero: row.numero
+});
+
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+CREATE (:Dispositivo {
+    id_dispositivo: row.id_dispositivo,
+    tipo: row.tipo,
+    marca: row.marca,
+    modelo: row.modelo,
+    sistema_operativo: row.sistema_operativo,
+    fecha_ultimo_uso: date(row.fecha_ultimo_uso)
+});
+
+
+//cargar csvs de las relaciones
+
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+MATCH (u:Usuario {id: row.id_usuario})
+MATCH (c:Cuenta  {id: row.id_cuenta})
+MERGE (u)-[rel:TIENE]->(c)
+SET rel.status      = row.status,
+    rel.cliente_vip = toBoolean(row.cliente_vip),
+    rel.seguro      = toBoolean(row.seguro);
+
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+MATCH (t:Transaccion {id: row.id_transaccion})
+MATCH (c:Cuenta      {id: row.id_cuenta})
+MERGE (t)-[rel:DESTINO]->(c)
+SET rel.tiempo_transferencia   = time(row.tiempo_transferencia),
+    rel.confirmada_por_destino = toBoolean(row.confirmada_por_destino),
+    rel.internacional          = toBoolean(row.internacional);
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+MATCH (b:Banco  {id: row.id_banco})
+MATCH (c:Cuenta {id: row.id_cuenta})
+MERGE (b)-[rel:PROVEE]->(c)
+SET rel.sucursal_origen  = row.sucursal_origen,
+    rel.actividad_reciente = toBoolean(row.actividad_reciente),
+    rel.networking         = toBoolean(row.networking);
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+MATCH (b1:Banco {id: row.id_banco1})
+MATCH (b2:Banco {id: row.id_banco2})
+MERGE (b1)-[rel:CONEXION_CON]->(b2)
+SET rel.tipo_conexion          = row.tipo_conexion,
+    rel.monto_total_movido     = toInteger(row.monto_total_movido),
+    rel.frecuencia_transacciones = toInteger(row.frecuencia_transacciones);
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+MATCH (e:Empresa {id: row.id_empresa})
+MATCH (c:Cuenta  {id: row.id_cuenta})
+MERGE (e)-[rel:TIENE]->(c)
+SET rel.cliente_vip = toBoolean(row.cliente_vip),
+    rel.status      = row.status,
+    rel.seguro      = toBoolean(row.seguro);
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+MATCH (tar:Tarjeta {id: row.id_tarjeta})
+MATCH (c:Cuenta    {id: row.id_cuenta})
+MERGE (tar)-[rel:ASOCIADA_A]->(c)
+SET rel.limite_credito  = toInteger(row.limite_credito),
+    rel.numero_de_uso   = toInteger(row.numero_de_uso),
+    rel.fecha_asociacion = date(row.fecha_asociacion);
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+MATCH (d:Dispositivo {id: row.id_dispositivo})
+MATCH (t:Transaccion {id: row.id_transaccion})
+MERGE (d)-[rel:USADO_EN]->(t)
+SET rel.conexion    = row.conexion,
+    rel.ip_asociados = row.ip_asociados,
+    rel.ubicacion    = row.ubicacion;
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+MATCH (tar:Tarjeta    {id: row.id_tarjeta})
+MATCH (t:Transaccion  {id: row.id_transaccion})
+MERGE (tar)-[rel:REALIZA]->(t)
+SET rel.aprobada        = toBoolean(row.aprobada),
+    rel.tiempo_ejecucion = time(row.tiempo_ejecucion) END,
+    rel.nit             = toInteger(row.nit);
+
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+MATCH (u:Usuario      {id: row.id_usuario})
+MATCH (d:Dispositivo  {id: row.id_dispositivo})
+MERGE (u)-[rel:POSEE]->(d)
+SET rel.huella_dactilar     = toBoolean(row.huella_dactilar),
+    rel.reconocimiento_facial = toBoolean(row.reconocimiento_facial),
+    rel.ubicaciones         = row.ubicaciones END;
+
+
+LOAD CSV WITH HEADERS FROM 'https://drive.googel.com/uc?export=download&id=' AS row
+MATCH (u:Usuario   {id: row.id_usuario})
+MATCH (tar:Tarjeta {id: row.id_tarjeta})
+MERGE (u)-[rel:PROPIETARIO]->(tar)
+SET rel.chip         = toBoolean(row.chip),
+    rel.tiempo_de_uso = toInteger(row.tiempo_de_uso),
+    rel.membresia    = row.membresia;
+
+
+
+
+
+
+
+
+
