@@ -10,12 +10,14 @@ import { delete_account } from '../controllers/accounts/delete_account';
 import { lock_account } from '../controllers/accounts/lock_account';
 import { freeze_account } from '../controllers/accounts/freeze_account';
 import { unlock_account } from '../controllers/accounts/unlock_account';
+import { fetch_accounts_by_user_id } from '../controllers/accounts/fetch_accounts_by_user';
 
 const account_router = Router();
 
 account_router.post('/', create_account);
 account_router.get('/', fetch_all_accounts);
 account_router.get('/:id_cuenta', fetch_account_by_id);
+account_router.get('/user/:id_usuario', fetch_accounts_by_user_id)
 account_router.put('/:id_cuenta', update_account);
 account_router.delete('/:id_cuenta', delete_account);
 
