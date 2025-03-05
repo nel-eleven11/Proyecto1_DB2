@@ -1,0 +1,6 @@
+id_banco1,id_banco2,tipo_conexion,monto_total_movido,frecuencia_transacciones
+Bank1,Bank2,Internacional,454233,130
+Bank2,Bank3,Internacional,232571,327
+Bank3,Bank4,Nacional,998754,285
+Bank4,Bank5,Internacional,614755,490
+Bank5,Bank6,Nacional,218178,74

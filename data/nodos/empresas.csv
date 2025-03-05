@@ -1,0 +1,101 @@
+id_empresa,nombre,tipo,sector,pais,telefono,email,direccion
+EMP1,Empresa 1 CO,"Sociedad Limitada, Sociedad Colectiva",Alimentos,Guatemala,44763931,empresa1@gmail.com,Direccion 1 zona 1 avenida 6
+EMP2,Empresa 2 CO,Sociedad Anónima,Software,Honduras,42754857,empresa2@gmail.com,Direccion 2 zona 8 avenida 7
+EMP3,Empresa 3 CO,"Sociedad Limitada, Sociedad Colectiva",Alimentos,Panamá,42340317,empresa3@gmail.com,Direccion 3 zona 13 avenida 8
+EMP4,Empresa 4 CO,Sociedad Anónima,Software,Costa Rica,40993076,empresa4@gmail.com,Direccion 4 zona 20 avenida 9
+EMP5,Empresa 5 CO,Sociedad Anónima,Alimentos,Belice,49123812,empresa5@gmail.com,Direccion 5 zona 9 avenida 10
+EMP6,Empresa 6 CO,Sociedad Anónima,Alimentos,Costa Rica,48469723,empresa6@gmail.com,Direccion 6 zona 7 avenida 11
+EMP7,Empresa 7 CO,Sociedad Anónima,Automotriz,El Salvador,47055625,empresa7@gmail.com,Direccion 7 zona 15 avenida 12
+EMP8,Empresa 8 CO,Sociedad Anónima,Banca,Panamá,46713449,empresa8@gmail.com,Direccion 8 zona 8 avenida 13
+EMP9,Empresa 9 CO,Sociedad Anónima,Alimentos,Nicaragua,41997275,empresa9@gmail.com,Direccion 9 zona 4 avenida 14
+EMP10,Empresa 10 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,Costa Rica,40750487,empresa10@gmail.com,Direccion 10 zona 18 avenida 15
+EMP11,Empresa 11 CO,"Sociedad Limitada, Sociedad Colectiva",Software,Guatemala,48906494,empresa11@gmail.com,Direccion 11 zona 16 avenida 16
+EMP12,Empresa 12 CO,"Sociedad Limitada, Sociedad Colectiva",Software,Costa Rica,48150509,empresa12@gmail.com,Direccion 12 zona 5 avenida 17
+EMP13,Empresa 13 CO,"Sociedad Limitada, Sociedad Colectiva",Banca,Guatemala,41317355,empresa13@gmail.com,Direccion 13 zona 18 avenida 18
+EMP14,Empresa 14 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,Panamá,44097000,empresa14@gmail.com,Direccion 14 zona 18 avenida 19
+EMP15,Empresa 15 CO,Sociedad Anónima,Automotriz,Honduras,44954686,empresa15@gmail.com,Direccion 15 zona 14 avenida 20
+EMP16,Empresa 16 CO,Sociedad Anónima,Banca,El Salvador,40759895,empresa16@gmail.com,Direccion 16 zona 10 avenida 21
+EMP17,Empresa 17 CO,Sociedad Anónima,Automotriz,Guatemala,46408259,empresa17@gmail.com,Direccion 17 zona 10 avenida 22
+EMP18,Empresa 18 CO,Sociedad Anónima,Software,Belice,40997464,empresa18@gmail.com,Direccion 18 zona 15 avenida 23
+EMP19,Empresa 19 CO,Sociedad Anónima,Alimentos,Guatemala,48754033,empresa19@gmail.com,Direccion 19 zona 20 avenida 24
+EMP20,Empresa 20 CO,Sociedad Anónima,Alimentos,El Salvador,47738959,empresa20@gmail.com,Direccion 20 zona 6 avenida 25
+EMP21,Empresa 21 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,El Salvador,40837363,empresa21@gmail.com,Direccion 21 zona 19 avenida 26
+EMP22,Empresa 22 CO,Sociedad Anónima,Automotriz,El Salvador,41392592,empresa22@gmail.com,Direccion 22 zona 1 avenida 27
+EMP23,Empresa 23 CO,Sociedad Anónima,Alimentos,Honduras,49001850,empresa23@gmail.com,Direccion 23 zona 15 avenida 28
+EMP24,Empresa 24 CO,"Sociedad Limitada, Sociedad Colectiva",Alimentos,Honduras,47935374,empresa24@gmail.com,Direccion 24 zona 7 avenida 29
+EMP25,Empresa 25 CO,"Sociedad Limitada, Sociedad Colectiva",Software,Panamá,45114526,empresa25@gmail.com,Direccion 25 zona 7 avenida 30
+EMP26,Empresa 26 CO,Sociedad Anónima,Automotriz,Costa Rica,49201288,empresa26@gmail.com,Direccion 26 zona 1 avenida 31
+EMP27,Empresa 27 CO,"Sociedad Limitada, Sociedad Colectiva",Banca,Costa Rica,40974739,empresa27@gmail.com,Direccion 27 zona 3 avenida 32
+EMP28,Empresa 28 CO,Sociedad Anónima,Automotriz,Belice,46946069,empresa28@gmail.com,Direccion 28 zona 20 avenida 33
+EMP29,Empresa 29 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,Guatemala,48680596,empresa29@gmail.com,Direccion 29 zona 15 avenida 34
+EMP30,Empresa 30 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,Guatemala,48786089,empresa30@gmail.com,Direccion 30 zona 9 avenida 35
+EMP31,Empresa 31 CO,"Sociedad Limitada, Sociedad Colectiva",Alimentos,Costa Rica,41217694,empresa31@gmail.com,Direccion 31 zona 3 avenida 36
+EMP32,Empresa 32 CO,Sociedad Anónima,Banca,El Salvador,43527035,empresa32@gmail.com,Direccion 32 zona 16 avenida 37
+EMP33,Empresa 33 CO,Sociedad Anónima,Alimentos,Panamá,40046274,empresa33@gmail.com,Direccion 33 zona 5 avenida 38
+EMP34,Empresa 34 CO,"Sociedad Limitada, Sociedad Colectiva",Alimentos,Belice,46268759,empresa34@gmail.com,Direccion 34 zona 18 avenida 39
+EMP35,Empresa 35 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,Belice,46345791,empresa35@gmail.com,Direccion 35 zona 14 avenida 40
+EMP36,Empresa 36 CO,"Sociedad Limitada, Sociedad Colectiva",Alimentos,Guatemala,42829819,empresa36@gmail.com,Direccion 36 zona 14 avenida 41
+EMP37,Empresa 37 CO,Sociedad Anónima,Software,Costa Rica,49835337,empresa37@gmail.com,Direccion 37 zona 19 avenida 42
+EMP38,Empresa 38 CO,Sociedad Anónima,Banca,Costa Rica,46477368,empresa38@gmail.com,Direccion 38 zona 9 avenida 43
+EMP39,Empresa 39 CO,Sociedad Anónima,Software,El Salvador,49022624,empresa39@gmail.com,Direccion 39 zona 4 avenida 44
+EMP40,Empresa 40 CO,Sociedad Anónima,Software,Honduras,44737113,empresa40@gmail.com,Direccion 40 zona 2 avenida 45
+EMP41,Empresa 41 CO,Sociedad Anónima,Alimentos,Belice,43268560,empresa41@gmail.com,Direccion 41 zona 10 avenida 46
+EMP42,Empresa 42 CO,"Sociedad Limitada, Sociedad Colectiva",Banca,El Salvador,40703758,empresa42@gmail.com,Direccion 42 zona 20 avenida 47
+EMP43,Empresa 43 CO,Sociedad Anónima,Software,Panamá,42298605,empresa43@gmail.com,Direccion 43 zona 6 avenida 48
+EMP44,Empresa 44 CO,"Sociedad Limitada, Sociedad Colectiva",Banca,Panamá,43055481,empresa44@gmail.com,Direccion 44 zona 3 avenida 49
+EMP45,Empresa 45 CO,"Sociedad Limitada, Sociedad Colectiva",Alimentos,Guatemala,49078895,empresa45@gmail.com,Direccion 45 zona 11 avenida 50
+EMP46,Empresa 46 CO,"Sociedad Limitada, Sociedad Colectiva",Software,Costa Rica,45310315,empresa46@gmail.com,Direccion 46 zona 3 avenida 51
+EMP47,Empresa 47 CO,Sociedad Anónima,Automotriz,Nicaragua,40515026,empresa47@gmail.com,Direccion 47 zona 3 avenida 52
+EMP48,Empresa 48 CO,"Sociedad Limitada, Sociedad Colectiva",Alimentos,El Salvador,45846684,empresa48@gmail.com,Direccion 48 zona 9 avenida 53
+EMP49,Empresa 49 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,Nicaragua,49302201,empresa49@gmail.com,Direccion 49 zona 7 avenida 54
+EMP50,Empresa 50 CO,Sociedad Anónima,Alimentos,Guatemala,43033497,empresa50@gmail.com,Direccion 50 zona 18 avenida 55
+EMP51,Empresa 51 CO,"Sociedad Limitada, Sociedad Colectiva",Software,El Salvador,46344394,empresa51@gmail.com,Direccion 51 zona 1 avenida 56
+EMP52,Empresa 52 CO,"Sociedad Limitada, Sociedad Colectiva",Alimentos,Nicaragua,45359367,empresa52@gmail.com,Direccion 52 zona 1 avenida 57
+EMP53,Empresa 53 CO,Sociedad Anónima,Software,Nicaragua,46607008,empresa53@gmail.com,Direccion 53 zona 2 avenida 58
+EMP54,Empresa 54 CO,"Sociedad Limitada, Sociedad Colectiva",Software,Nicaragua,40801420,empresa54@gmail.com,Direccion 54 zona 15 avenida 59
+EMP55,Empresa 55 CO,"Sociedad Limitada, Sociedad Colectiva",Software,Guatemala,42265441,empresa55@gmail.com,Direccion 55 zona 19 avenida 60
+EMP56,Empresa 56 CO,Sociedad Anónima,Alimentos,El Salvador,40599341,empresa56@gmail.com,Direccion 56 zona 2 avenida 61
+EMP57,Empresa 57 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,Guatemala,47081618,empresa57@gmail.com,Direccion 57 zona 5 avenida 62
+EMP58,Empresa 58 CO,Sociedad Anónima,Alimentos,Guatemala,45913467,empresa58@gmail.com,Direccion 58 zona 18 avenida 63
+EMP59,Empresa 59 CO,"Sociedad Limitada, Sociedad Colectiva",Software,Costa Rica,42867433,empresa59@gmail.com,Direccion 59 zona 5 avenida 64
+EMP60,Empresa 60 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,Guatemala,47234836,empresa60@gmail.com,Direccion 60 zona 10 avenida 65
+EMP61,Empresa 61 CO,Sociedad Anónima,Alimentos,Honduras,49665591,empresa61@gmail.com,Direccion 61 zona 19 avenida 66
+EMP62,Empresa 62 CO,"Sociedad Limitada, Sociedad Colectiva",Alimentos,Panamá,40439860,empresa62@gmail.com,Direccion 62 zona 14 avenida 67
+EMP63,Empresa 63 CO,Sociedad Anónima,Alimentos,Honduras,41885900,empresa63@gmail.com,Direccion 63 zona 14 avenida 68
+EMP64,Empresa 64 CO,"Sociedad Limitada, Sociedad Colectiva",Software,Belice,49144155,empresa64@gmail.com,Direccion 64 zona 17 avenida 69
+EMP65,Empresa 65 CO,Sociedad Anónima,Alimentos,Guatemala,40563608,empresa65@gmail.com,Direccion 65 zona 3 avenida 70
+EMP66,Empresa 66 CO,Sociedad Anónima,Banca,El Salvador,42216645,empresa66@gmail.com,Direccion 66 zona 6 avenida 71
+EMP67,Empresa 67 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,Belice,40404900,empresa67@gmail.com,Direccion 67 zona 3 avenida 72
+EMP68,Empresa 68 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,Panamá,44613710,empresa68@gmail.com,Direccion 68 zona 18 avenida 73
+EMP69,Empresa 69 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,Belice,46694000,empresa69@gmail.com,Direccion 69 zona 16 avenida 74
+EMP70,Empresa 70 CO,Sociedad Anónima,Software,Panamá,43444355,empresa70@gmail.com,Direccion 70 zona 5 avenida 75
+EMP71,Empresa 71 CO,"Sociedad Limitada, Sociedad Colectiva",Software,Honduras,49715019,empresa71@gmail.com,Direccion 71 zona 18 avenida 76
+EMP72,Empresa 72 CO,"Sociedad Limitada, Sociedad Colectiva",Software,El Salvador,42517470,empresa72@gmail.com,Direccion 72 zona 16 avenida 77
+EMP73,Empresa 73 CO,"Sociedad Limitada, Sociedad Colectiva",Banca,Honduras,46604416,empresa73@gmail.com,Direccion 73 zona 2 avenida 78
+EMP74,Empresa 74 CO,"Sociedad Limitada, Sociedad Colectiva",Software,Guatemala,40237956,empresa74@gmail.com,Direccion 74 zona 1 avenida 79
+EMP75,Empresa 75 CO,"Sociedad Limitada, Sociedad Colectiva",Banca,Costa Rica,46944706,empresa75@gmail.com,Direccion 75 zona 6 avenida 80
+EMP76,Empresa 76 CO,Sociedad Anónima,Automotriz,Costa Rica,44580959,empresa76@gmail.com,Direccion 76 zona 2 avenida 81
+EMP77,Empresa 77 CO,"Sociedad Limitada, Sociedad Colectiva",Alimentos,Panamá,41018188,empresa77@gmail.com,Direccion 77 zona 6 avenida 82
+EMP78,Empresa 78 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,Nicaragua,48851971,empresa78@gmail.com,Direccion 78 zona 14 avenida 83
+EMP79,Empresa 79 CO,"Sociedad Limitada, Sociedad Colectiva",Alimentos,Honduras,46936171,empresa79@gmail.com,Direccion 79 zona 18 avenida 84
+EMP80,Empresa 80 CO,"Sociedad Limitada, Sociedad Colectiva",Software,El Salvador,49563017,empresa80@gmail.com,Direccion 80 zona 1 avenida 85
+EMP81,Empresa 81 CO,"Sociedad Limitada, Sociedad Colectiva",Alimentos,Honduras,41415921,empresa81@gmail.com,Direccion 81 zona 3 avenida 86
+EMP82,Empresa 82 CO,Sociedad Anónima,Automotriz,Costa Rica,46195538,empresa82@gmail.com,Direccion 82 zona 15 avenida 87
+EMP83,Empresa 83 CO,Sociedad Anónima,Alimentos,Panamá,44313770,empresa83@gmail.com,Direccion 83 zona 14 avenida 88
+EMP84,Empresa 84 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,El Salvador,41208075,empresa84@gmail.com,Direccion 84 zona 13 avenida 89
+EMP85,Empresa 85 CO,Sociedad Anónima,Banca,El Salvador,47258869,empresa85@gmail.com,Direccion 85 zona 8 avenida 90
+EMP86,Empresa 86 CO,Sociedad Anónima,Automotriz,Honduras,49293235,empresa86@gmail.com,Direccion 86 zona 2 avenida 91
+EMP87,Empresa 87 CO,"Sociedad Limitada, Sociedad Colectiva",Banca,Panamá,46996749,empresa87@gmail.com,Direccion 87 zona 19 avenida 92
+EMP88,Empresa 88 CO,"Sociedad Limitada, Sociedad Colectiva",Automotriz,El Salvador,43217895,empresa88@gmail.com,Direccion 88 zona 6 avenida 93
+EMP89,Empresa 89 CO,Sociedad Anónima,Alimentos,Honduras,49761603,empresa89@gmail.com,Direccion 89 zona 20 avenida 94
+EMP90,Empresa 90 CO,Sociedad Anónima,Automotriz,El Salvador,43235218,empresa90@gmail.com,Direccion 90 zona 2 avenida 95
+EMP91,Empresa 91 CO,Sociedad Anónima,Automotriz,Guatemala,49766837,empresa91@gmail.com,Direccion 91 zona 10 avenida 96
+EMP92,Empresa 92 CO,"Sociedad Limitada, Sociedad Colectiva",Alimentos,El Salvador,42273901,empresa92@gmail.com,Direccion 92 zona 5 avenida 97
+EMP93,Empresa 93 CO,Sociedad Anónima,Automotriz,Honduras,44064573,empresa93@gmail.com,Direccion 93 zona 14 avenida 98
+EMP94,Empresa 94 CO,Sociedad Anónima,Alimentos,Costa Rica,47572016,empresa94@gmail.com,Direccion 94 zona 5 avenida 99
+EMP95,Empresa 95 CO,Sociedad Anónima,Alimentos,Costa Rica,46887150,empresa95@gmail.com,Direccion 95 zona 15 avenida 100
+EMP96,Empresa 96 CO,Sociedad Anónima,Automotriz,El Salvador,40616359,empresa96@gmail.com,Direccion 96 zona 4 avenida 101
+EMP97,Empresa 97 CO,Sociedad Anónima,Banca,Panamá,47785635,empresa97@gmail.com,Direccion 97 zona 1 avenida 102
+EMP98,Empresa 98 CO,Sociedad Anónima,Automotriz,Costa Rica,43535858,empresa98@gmail.com,Direccion 98 zona 12 avenida 103
+EMP99,Empresa 99 CO,"Sociedad Limitada, Sociedad Colectiva",Banca,Panamá,40802529,empresa99@gmail.com,Direccion 99 zona 3 avenida 104
+EMP100,Empresa 100 CO,Sociedad Anónima,Banca,Nicaragua,49062342,empresa100@gmail.com,Direccion 100 zona 1 avenida 105
