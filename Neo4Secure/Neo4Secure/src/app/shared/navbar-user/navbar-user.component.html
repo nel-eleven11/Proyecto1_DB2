@@ -24,22 +24,16 @@
   <ul [class.open]="menuOpen" class="nav-links">
 
 
-    <!-- Opción de Usuarios (solo Admin) -->
-    <li *ngIf="role === 'admin'">
-      <a (click)="onClickUsers()">
-        <i class="fa-solid fa-users"></i> Usuarios
-      </a>
-    </li>
 
     <!-- Opción de Cuentas (solo Admin) -->
-    <li *ngIf="role === 'admin'">
+    <li>
       <a (click)="onClickAccounts()">
         <i class="fa-solid fa-building-columns"></i> Cuentas
       </a>
     </li>
 
     <!-- Opción de Realizar Pago (solo client) -->
-    <li *ngIf="role === 'client'">
+    <li>
       <a (click)="onClickPayment()">
         <i class="fa-solid fa-money-bill-transfer"></i> Realizar Pago
       </a>

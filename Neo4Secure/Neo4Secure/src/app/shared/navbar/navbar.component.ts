@@ -11,7 +11,10 @@ export class NavbarComponent {
   currentLanguage: string = 'Español';
   userMenuOpen: boolean = false;
   menuOpen: boolean = false;
-  // Rol del usuario: 'admin' o 'user'
+
+  // Rol del usuario (admin o client)
+
+  // O, si lo guardas en localStorage:
   role: string = localStorage.getItem('role') || 'admin';
 
   constructor(private router: Router) {}
@@ -31,51 +34,37 @@ export class NavbarComponent {
   }
 
   onClickDashboard(): void {
-    // Dashboard es visible para ambos roles
-    if (this.role === 'admin') {
-      this.router.navigate(['admin/dashboard']);
-    } else if (this.role === 'user') {
-      this.router.navigate(['neosec/dashboard']);
-    }
+    console.log('Navegando a Dashboard');
+    // Aquí puedes cerrar el menú, mostrar un alert, etc.
+    this.router.navigate(['admin/dashboard']);
   }
 
   onClickUsers(): void {
-    // La opción de usuarios solo se muestra para admin
     this.router.navigate(['admin/users']);
   }
 
   onClickAccounts(): void {
-    // Si es admin, navega a la sección de cuentas del módulo admin.
-    // Si es user, navega a la sección de cuentas del módulo usuario (por ejemplo, /neosec/accounts)
-    if (this.role === 'admin') {
-      this.router.navigate(['admin/accounts']);
-    } else if (this.role === 'user') {
-      this.router.navigate(['neosec/accounts']);
-    }
+    this.router.navigate(['admin/accounts']);
   }
 
   onClickPayment(): void {
-    // Si es admin, podrías tener otra ruta (por ejemplo, /admin/payment).
-    // Si es user, redirige a la opción de Realizar Pago en el módulo usuario.
-    if (this.role === 'admin') {
-      this.router.navigate(['admin/payment']);
-    } else if (this.role === 'user') {
-      this.router.navigate(['neosec/payment']);
-    }
+    // Funcionalidad de "Realizar pago"
+    console.log('Navegando a realizar pago...');
+    // this.router.navigate(['admin/payment']);
   }
 
   onClickSettings(): void {
-    // Configuración puede ser común o diferenciada; aquí se redirige a la ruta de admin
+    console.log('Navegando a Configuración');
     this.router.navigate(['admin/settings']);
   }
 
   logout(): void {
     alert('Cerrando sesión...');
-    // Limpia los datos almacenados
+    // Limpia localStorage si quieres
     localStorage.removeItem('token');
     localStorage.removeItem('role');
     localStorage.removeItem('userName');
-    localStorage.removeItem('selectedUserId');
+
     this.router.navigate(['/login']);
     this.closeUserMenu();
   }
