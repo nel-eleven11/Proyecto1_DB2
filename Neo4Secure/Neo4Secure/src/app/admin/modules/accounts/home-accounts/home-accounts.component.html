@@ -1,0 +1,128 @@
+<div class="users-container">
+  <header>
+    <h2 class="users-title">Gestión de Cuentas</h2>
+  </header>
+
+  <!-- Botón para crear una nueva cuenta -->
+  <button class="add-user-button" (click)="addAccount()">
+    <i class="fa-solid fa-plus"></i> Nueva Cuenta
+  </button>
+
+  <!-- Campo para ingresar el id_usuario y buscar cuentas -->
+  <div class="search-container" style="display: flex; align-items: center; gap: 10px;">
+    <input
+      type="text"
+      [(ngModel)]="selectedUserId"
+      placeholder="ID del Usuario (ej. US1)"
+      class="search-input"
+    />
+    <button class="add-user-button" (click)="fetchAccountsByUser()">
+      Buscar Cuentas
+    </button>
+  </div>
+
+  <!-- Campo de búsqueda local en la tabla -->
+  <div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Buscar cuentas..."
+      class="search-input"
+    />
+  </div>
+
+  <!-- Tabla de Cuentas -->
+  <table>
+    <thead>
+      <tr>
+        <th (click)="sortBy('id_cuenta')">
+          ID Cuenta
+          <i class="fa" [ngClass]="getSortIcon('id_cuenta')"></i>
+        </th>
+        <th (click)="sortBy('tipo')">
+          Tipo
+          <i class="fa" [ngClass]="getSortIcon('tipo')"></i>
+        </th>
+        <th (click)="sortBy('saldo')">
+          Saldo
+          <i class="fa" [ngClass]="getSortIcon('saldo')"></i>
+        </th>
+        <th (click)="sortBy('estado')">
+          Estado
+          <i class="fa" [ngClass]="getSortIcon('estado')"></i>
+        </th>
+        <th (click)="sortBy('fecha_apertura')">
+          Fecha Apertura
+          <i class="fa" [ngClass]="getSortIcon('fecha_apertura')"></i>
+        </th>
+        <th (click)="sortBy('fecha_cierre')">
+          Fecha Cierre
+          <i class="fa" [ngClass]="getSortIcon('fecha_cierre')"></i>
+        </th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of displayedAccounts">
+        <td>
+          <a (click)="goToCards(account.id_cuenta)" class="account-id-link">
+          {{ account.id_cuenta }}
+        </a>
+      </td>
+        <td>{{ account.tipo }}</td>
+        <td>Q {{ account.saldo }}</td>
+        <td>{{ account.estado }}</td>
+        <td>{{ account.fecha_apertura }}</td>
+        <td>{{ account.fecha_cierre || '---' }}</td>
+        <td>
+          <div class="actions-buttons">
+            <!-- Editar -->
+            <button class="edit" (click)="editAccount(account)">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <!-- Eliminar -->
+            <button class="delete" (click)="deleteAccount(account)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+            <!-- Lock -->
+            <button
+              class="lock"
+              (click)="lockAccount(account)"
+              [disabled]="account.estado.toLowerCase() === 'bloqueada'"
+            >
+              <i class="fa-solid fa-lock"></i>
+            </button>
+            <!-- Freeze -->
+            <button
+              class="freeze"
+              (click)="freezeAccount(account)"
+              [disabled]="account.estado.toLowerCase() === 'congelada'"
+            >
+              <i class="fa-solid fa-snowflake"></i>
+            </button>
+            <!-- Unlock -->
+            <button
+              class="unlock"
+              (click)="unlockAccount(account)"
+              [disabled]="account.estado.toLowerCase() === 'activa'"
+            >
+              <i class="fa-solid fa-unlock"></i>
+            </button>
+          </div>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Paginación -->
+  <div class="pagination-container">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">
+      Anterior
+    </button>
+    <span>Página {{ currentPage }} / {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage >= totalPages">
+      Siguiente
+    </button>
+  </div>
+</div>

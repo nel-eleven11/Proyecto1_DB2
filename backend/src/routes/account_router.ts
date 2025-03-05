@@ -16,8 +16,9 @@ const account_router = Router();
 
 account_router.post('/', create_account);
 account_router.get('/', fetch_all_accounts);
-account_router.get('/:id_cuenta', fetch_account_by_id);
 account_router.get('/user/:id_usuario', fetch_accounts_by_user_id)
+account_router.get('/:id_cuenta', fetch_account_by_id);
+
 account_router.put('/:id_cuenta', update_account);
 account_router.delete('/:id_cuenta', delete_account);
 

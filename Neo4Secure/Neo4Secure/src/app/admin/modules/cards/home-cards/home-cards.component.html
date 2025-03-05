@@ -1,0 +1,82 @@
+<div class="cards-container">
+  <header>
+    <h2 class="cards-title">Tarjetas de la Cuenta {{ id_cuenta }}</h2>
+  </header>
+
+  <!-- Botón para crear una nueva tarjeta -->
+  <button class="add-card-button" (click)="addCard()">
+    <i class="fa-solid fa-plus"></i> Nueva Tarjeta
+  </button>
+  <button class="add-card-button" (click)="goToHistory()">
+    <i class="fa-solid fa-history"></i> Ver Historial
+  </button>
+
+  <!-- Buscador local de tarjetas -->
+  <div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Buscar tarjetas..."
+      class="search-input"
+    />
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th (click)="sortBy('id_tarjeta')">
+          ID Tarjeta
+          <i class="fa" [ngClass]="getSortIcon('id_tarjeta')"></i>
+        </th>
+        <th (click)="sortBy('tipo')">
+          Tipo
+          <i class="fa" [ngClass]="getSortIcon('tipo')"></i>
+        </th>
+        <th (click)="sortBy('marca')">
+          Marca
+          <i class="fa" [ngClass]="getSortIcon('marca')"></i>
+        </th>
+        <th (click)="sortBy('estado')">
+          Estado
+          <i class="fa" [ngClass]="getSortIcon('estado')"></i>
+        </th>
+        <th (click)="sortBy('fecha_expiracion')">
+          Fecha Expiración
+          <i class="fa" [ngClass]="getSortIcon('fecha_expiracion')"></i>
+        </th>
+        <th (click)="sortBy('numero')">
+          Número
+          <i class="fa" [ngClass]="getSortIcon('numero')"></i>
+        </th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of displayedTarjetas">
+        <td>{{ t.id_tarjeta }}</td>
+        <td>{{ t.tipo }}</td>
+        <td>{{ t.marca }}</td>
+        <td>{{ t.estado }}</td>
+        <td>{{ t.fecha_expiracion }}</td>
+        <td>{{ t.numero }}</td>
+        <td>
+          <div class="actions-buttons">
+            <button class="edit" (click)="editCard(t)">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button class="delete" (click)="deleteCard(t)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Paginación -->
+  <div class="pagination-container">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
+    <span>Página {{ currentPage }} / {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage >= totalPages">Siguiente</button>
+  </div>
+</div>

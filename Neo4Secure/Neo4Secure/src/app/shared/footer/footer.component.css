@@ -1,0 +1,82 @@
+.footer {
+  background-color: #0D47A1;
+  color: #fff;
+  padding: 20px 0; /* Padding por defecto para pantallas grandes */
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1 1 300px;
+  margin: 10px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.footer-section p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.social-icons a {
+  color: #fff;
+  margin-right: 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffcc00;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 10px;
+  font-size: 0.8rem;
+}
+
+/* Ajustes para reducir espacio en pantallas pequeñas */
+@media (max-width: 768px) {
+  .footer {
+    padding: 10px 0; /* Reducimos el padding vertical */
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px; /* Ajuste horizontal menor */
+  }
+
+  .footer-section {
+    margin: 5px 0; /* Reducimos el margen entre secciones */
+  }
+
+  .footer-section h3,
+  .footer-section h4 {
+    margin-bottom: 8px; /* Menos espacio debajo de los títulos */
+  }
+
+  .footer-section p {
+    margin: 3px 0; /* Menos espacio entre párrafos */
+  }
+
+  .footer-bottom {
+    margin-top: 10px;
+    padding-top: 5px; /* Reducimos también el espacio en la parte inferior */
+  }
+}

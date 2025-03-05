@@ -1,0 +1,21 @@
+
+/* Asegura que html y body ocupen toda la altura */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal que define la columna */
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ocupa al menos toda la ventana */
+}
+
+/* Contenido que crecerá para empujar el footer */
+.layout-content {
+  flex: 1; /* Crece hasta llenar el espacio disponible */
+  padding: 0; /* Ajusta si quieres márgenes/paddings */
+  box-sizing: border-box;
+}

@@ -1,0 +1,67 @@
+<div class="modal-overlay">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h5 class="modal-title">
+        {{ isEditMode ? 'Editar Cuenta' : 'Nueva Cuenta' }}
+      </h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- Alerta personalizada -->
+    <div class="alert" [class.showAlert]="showWarningAlert" [class.hide]="!showWarningAlert">
+      <span class="msg">{{ alertMessage }}</span>
+      <div class="close-btn" (click)="closeAlert()">
+        <span class="fas fa-times"></span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <form [formGroup]="accountForm">
+        <!-- Tipo -->
+        <div class="mb-3">
+          <label for="tipo" class="form-label fw-bold">Tipo</label>
+          <input id="tipo" formControlName="tipo" type="text" class="form-control" placeholder="Ej. Ahorro, Corriente" />
+        </div>
+
+        <!-- Saldo -->
+        <div class="mb-3">
+          <label for="saldo" class="form-label fw-bold">Saldo</label>
+          <input id="saldo" formControlName="saldo" type="number" class="form-control" placeholder="Ingrese el saldo" />
+        </div>
+
+        <!-- Fecha de Apertura -->
+        <div class="mb-3">
+          <label for="fecha_apertura" class="form-label fw-bold">Fecha de Apertura</label>
+          <input id="fecha_apertura" formControlName="fecha_apertura" type="date" class="form-control" />
+        </div>
+
+        <!-- Fecha de Cierre -->
+        <div class="mb-3">
+          <label for="fecha_cierre" class="form-label fw-bold">Fecha de Cierre</label>
+          <input id="fecha_cierre" formControlName="fecha_cierre" type="date" class="form-control" placeholder="Opcional" />
+        </div>
+
+        <!-- Estado -->
+        <div class="mb-3">
+          <label for="estado" class="form-label fw-bold">Estado</label>
+          <input id="estado" formControlName="estado" type="text" class="form-control" placeholder="Ej. Activa, Inactiva" />
+        </div>
+
+        <!-- ID de Cuenta, solo en edición -->
+        <div class="mb-3" *ngIf="isEditMode && accountData.id_cuenta">
+          <label for="id_cuenta" class="form-label fw-bold">ID Cuenta</label>
+          <input id="id_cuenta" formControlName="id_cuenta" type="text" class="form-control" readonly />
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn cancel-button" (click)="close()">Cancelar</button>
+      <button type="button" class="btn save-button" (click)="save()">
+        {{ isEditMode ? 'Guardar Cambios' : 'Agregar Cuenta' }}
+      </button>
+    </div>
+  </div>
+</div>

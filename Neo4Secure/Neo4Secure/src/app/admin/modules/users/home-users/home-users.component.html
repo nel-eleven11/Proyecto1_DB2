@@ -1,0 +1,86 @@
+<div class="users-container">
+  <header>
+    <h2 class="users-title">Gestión de Usuarios</h2>
+  </header>
+
+  <!-- Botón para crear un nuevo usuario -->
+  <button class="add-user-button" (click)="addUser()">
+    <i class="fa-solid fa-plus"></i> Nuevo Usuario
+  </button>
+
+  <!-- Campo de búsqueda -->
+  <div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Buscar usuarios..."
+      class="search-input"
+    />
+  </div>
+
+  <!-- Tabla de Usuarios -->
+  <table>
+    <thead>
+      <tr>
+        <!-- Cambiar orden al hacer click en la columna -->
+        <th (click)="sortBy('id_usuario')">
+          Id
+          <i class="fa" [ngClass]="getSortIcon('id_usuario')"></i>
+        </th>
+        <th (click)="sortBy('nombre')">
+          Nombre Completo
+          <i class="fa" [ngClass]="getSortIcon('nombre')"></i>
+        </th>
+        <th (click)="sortBy('email')">
+          Email
+          <i class="fa" [ngClass]="getSortIcon('email')"></i>
+        </th>
+        <th (click)="sortBy('pais')">
+          País
+          <i class="fa" [ngClass]="getSortIcon('pais')"></i>
+        </th>
+        <th (click)="sortBy('ciudad')">
+          Ciudad
+          <i class="fa" [ngClass]="getSortIcon('ciudad')"></i>
+        </th>
+        <th (click)="sortBy('telefono')">
+          Teléfono
+          <i class="fa" [ngClass]="getSortIcon('telefono')"></i>
+        </th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Usamos displayedUsers en lugar de users -->
+      <tr *ngFor="let user of displayedUsers">
+        <td>{{ user.id_usuario }}</td>
+        <td>{{ user.nombre }} {{ user.apellido }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.pais }}</td>
+        <td>{{ user.ciudad }}</td>
+        <td>{{ user.telefono }}</td>
+        <td>
+          <div class="actions-buttons">
+            <button class="edit" (click)="editUser(user)">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button class="delete" (click)="deleteUser(user)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Controles de Paginación -->
+  <div class="pagination-container">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">
+      Anterior
+    </button>
+    <span>Página {{currentPage}} / {{totalPages}}</span>
+    <button (click)="nextPage()" [disabled]="currentPage >= totalPages">
+      Siguiente
+    </button>
+  </div>
+</div>

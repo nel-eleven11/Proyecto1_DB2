@@ -1,0 +1,69 @@
+<!-- Cintillo Superior -->
+<div class="top-bar">
+  <div class="top-left">
+    <span>
+      <i class="fa-solid fa-user"></i> Usuario:
+      <b>{{ userName }}</b>
+    </span>
+    <!-- Menú desplegable del usuario -->
+    <ul *ngIf="userMenuOpen" class="user-menu">
+      <li (click)="switchLanguage('es')">
+        <i class="fa-solid fa-globe"></i> Español
+      </li>
+      <li (click)="switchLanguage('en')">
+        <i class="fa-solid fa-globe"></i> English
+      </li>
+    </ul>
+  </div>
+  <div class="top-right">
+    <i class="fa-solid fa-globe" (click)="toggleUserMenu()"></i> {{ currentLanguage }}
+    <i class="fa-solid fa-question-circle"></i>
+    <i class="fa-solid fa-power-off" (click)="logout()"></i>
+  </div>
+</div>
+
+<!-- Navbar Principal -->
+<nav class="navbar">
+  <span class="logo">Neo4Secure</span>
+  <ul [class.open]="menuOpen" class="nav-links">
+    <!-- Dashboard: visible para ambos roles -->
+    <li>
+      <a (click)="onClickDashboard()">
+        <i class="fa-solid fa-chart-line"></i> Dashboard
+      </a>
+    </li>
+
+    <!-- Usuarios: solo admin -->
+    <li *ngIf="role === 'admin'">
+      <a (click)="onClickUsers()">
+        <i class="fa-solid fa-users"></i> Usuarios
+      </a>
+    </li>
+
+    <!-- Cuentas: admin y user (pero rutas diferentes) -->
+    <li>
+      <a (click)="onClickAccounts()">
+        <i class="fa-solid fa-building-columns"></i> Cuentas
+      </a>
+    </li>
+
+    <!-- Realizar Pago: solo para user -->
+    <li *ngIf="role === 'user'">
+      <a (click)="onClickPayment()">
+        <i class="fa-solid fa-money-bill-transfer"></i> Realizar Pago
+      </a>
+    </li>
+
+    <!-- Configuración (común) -->
+    <li>
+      <a (click)="onClickSettings()">
+        <i class="fa-solid fa-cog"></i> Configuración
+      </a>
+    </li>
+  </ul>
+
+  <!-- Icono del menú hamburguesa -->
+  <div class="menu-icon" (click)="toggleMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</nav>

@@ -1,0 +1,58 @@
+<div class="transactions-container">
+  <header>
+    <h2 class="transactions-title">Historial de Transacciones - Cuenta {{ id_cuenta }}</h2>
+  </header>
+
+  <!-- Buscador local -->
+  <div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Buscar transacciones..."
+      class="search-input"
+    />
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th (click)="sortBy('id_transaccion')">
+          ID Transacción
+          <i class="fa" [ngClass]="getSortIcon('id_transaccion')"></i>
+        </th>
+        <th (click)="sortBy('monto')">
+          Monto
+          <i class="fa" [ngClass]="getSortIcon('monto')"></i>
+        </th>
+        <th (click)="sortBy('moneda_tipo')">
+          Moneda
+          <i class="fa" [ngClass]="getSortIcon('moneda_tipo')"></i>
+        </th>
+        <th (click)="sortBy('fecha_hora')">
+          Fecha/Hora
+          <i class="fa" [ngClass]="getSortIcon('fecha_hora')"></i>
+        </th>
+        <th (click)="sortBy('motivo')">
+          Motivo
+          <i class="fa" [ngClass]="getSortIcon('motivo')"></i>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tx of displayedTransacciones">
+        <td>{{ tx.id_transaccion || '(sin ID)' }}</td>
+        <td>{{ tx.monto }}</td>
+        <td>{{ tx.moneda_tipo }}</td>
+        <td>{{ tx.fecha_hora }}</td>
+        <td>{{ tx.motivo }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Paginación -->
+  <div class="pagination-container">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
+    <span>Página {{ currentPage }} / {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage >= totalPages">Siguiente</button>
+  </div>
+</div>

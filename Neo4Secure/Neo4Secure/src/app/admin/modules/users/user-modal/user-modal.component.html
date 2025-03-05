@@ -1,0 +1,138 @@
+<div class="modal-overlay">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h5 class="modal-title">
+        {{ isEditMode ? 'Editar Usuario' : 'Nuevo Usuario' }}
+      </h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- Alerta de error -->
+    <div class="alert" [class.showAlert]="showWarningAlert" [class.hide]="!showWarningAlert">
+      <span class="msg">{{ alertMessage }}</span>
+      <div class="close-btn" (click)="closeAlert()">
+        <span class="fas fa-times"></span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <form [formGroup]="userForm">
+        <!-- Nombre -->
+        <div class="mb-3">
+          <label for="nombre" class="form-label fw-bold">Nombre</label>
+          <input
+            id="nombre"
+            formControlName="nombre"
+            type="text"
+            class="form-control"
+            placeholder="Ingresa el nombre"
+          />
+        </div>
+
+        <!-- Apellido -->
+        <div class="mb-3">
+          <label for="apellido" class="form-label fw-bold">Apellido</label>
+          <input
+            id="apellido"
+            formControlName="apellido"
+            type="text"
+            class="form-control"
+            placeholder="Ingresa el apellido"
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label fw-bold">Email</label>
+          <input
+            id="email"
+            formControlName="email"
+            type="email"
+            class="form-control"
+            placeholder="ejemplo@correo.com"
+          />
+        </div>
+
+        <!-- Teléfono -->
+        <div class="mb-3">
+          <label for="telefono" class="form-label fw-bold">Teléfono</label>
+          <input
+            id="telefono"
+            formControlName="telefono"
+            type="text"
+            class="form-control"
+            placeholder="5555-6789"
+          />
+        </div>
+
+        <!-- País -->
+        <div class="mb-3">
+          <label for="pais" class="form-label fw-bold">País</label>
+          <input
+            id="pais"
+            formControlName="pais"
+            type="text"
+            class="form-control"
+            placeholder="Guatemala, México, etc."
+          />
+        </div>
+
+        <!-- Ciudad -->
+        <div class="mb-3">
+          <label for="ciudad" class="form-label fw-bold">Ciudad</label>
+          <input
+            id="ciudad"
+            formControlName="ciudad"
+            type="text"
+            class="form-control"
+            placeholder="Guatemala City"
+          />
+        </div>
+
+        <!-- Fecha de Nacimiento -->
+        <div class="mb-3">
+          <label for="fecha_nacimiento" class="form-label fw-bold">Fecha de Nacimiento</label>
+          <input
+            id="fecha_nacimiento"
+            formControlName="fecha_nacimiento"
+            type="date"
+            class="form-control"
+          />
+        </div>
+
+        <!-- NIT -->
+        <div class="mb-3">
+          <label for="nit" class="form-label fw-bold">NIT</label>
+          <input
+            id="nit"
+            formControlName="nit"
+            type="text"
+            class="form-control"
+            placeholder="1234-56789"
+          />
+        </div>
+
+        <!-- Campo de Fecha de Registro, solo en edición -->
+        <div class="mb-3" *ngIf="isEditMode && userData.fecha_registro">
+          <label for="fecha_registro" class="form-label fw-bold">Fecha de Registro</label>
+          <input
+            id="fecha_registro"
+            formControlName="fecha_registro"
+            type="text"
+            class="form-control"
+            readonly
+          />
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn cancel-button" (click)="close()">Cancelar</button>
+      <button type="button" class="btn save-button" (click)="save()">
+        {{ isEditMode ? 'Guardar Cambios' : 'Agregar Usuario' }}
+      </button>
+    </div>
+  </div>
+</div>

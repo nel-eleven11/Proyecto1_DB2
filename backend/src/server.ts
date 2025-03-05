@@ -20,7 +20,12 @@ const HOST: string = process.env.RPHOST || "0.0.0.0";
 const app: Express = express();
 
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:4200', // o ['http://localhost:4200']
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+  }));
 app.use(helmet());
 app.use(json());
 

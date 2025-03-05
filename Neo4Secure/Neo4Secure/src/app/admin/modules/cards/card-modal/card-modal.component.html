@@ -1,0 +1,102 @@
+<div class="modal-overlay">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h5 class="modal-title">
+        {{ isEditMode ? 'Editar Tarjeta' : 'Nueva Tarjeta' }}
+      </h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- Alerta de error -->
+    <div class="alert" [class.showAlert]="showWarningAlert" [class.hide]="!showWarningAlert">
+      <span class="msg">{{ alertMessage }}</span>
+      <div class="close-btn" (click)="closeAlert()">
+        <span class="fas fa-times"></span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <form [formGroup]="cardForm">
+        <!-- Tipo -->
+        <div class="mb-3">
+          <label for="tipo" class="form-label fw-bold">Tipo</label>
+          <input
+            id="tipo"
+            formControlName="tipo"
+            type="text"
+            class="form-control"
+            placeholder="Crédito, Débito..."
+          />
+        </div>
+
+        <!-- Marca -->
+        <div class="mb-3">
+          <label for="marca" class="form-label fw-bold">Marca</label>
+          <input
+            id="marca"
+            formControlName="marca"
+            type="text"
+            class="form-control"
+            placeholder="Visa, MasterCard..."
+          />
+        </div>
+
+        <!-- Fecha Expiración -->
+        <div class="mb-3">
+          <label for="fecha_expiracion" class="form-label fw-bold">Fecha Expiración</label>
+          <input
+            id="fecha_expiracion"
+            formControlName="fecha_expiracion"
+            type="date"
+            class="form-control"
+          />
+        </div>
+
+        <!-- Estado -->
+        <div class="mb-3">
+          <label for="estado" class="form-label fw-bold">Estado</label>
+          <input
+            id="estado"
+            formControlName="estado"
+            type="text"
+            class="form-control"
+            placeholder="Activa, Bloqueada..."
+          />
+        </div>
+
+        <!-- Límite de Crédito (sólo en modo creación) -->
+        <div class="mb-3" *ngIf="!isEditMode">
+          <label for="limite_credito" class="form-label fw-bold">Límite de Crédito</label>
+          <input
+            id="limite_credito"
+            formControlName="limite_credito"
+            type="number"
+            class="form-control"
+            placeholder="5000"
+          />
+        </div>
+
+        <!-- ID Tarjeta, sólo en edición -->
+        <div class="mb-3" *ngIf="isEditMode && cardData.id_tarjeta">
+          <label for="id_tarjeta" class="form-label fw-bold">ID Tarjeta</label>
+          <input
+            id="id_tarjeta"
+            formControlName="id_tarjeta"
+            type="text"
+            class="form-control"
+            readonly
+          />
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn cancel-button" (click)="close()">Cancelar</button>
+      <button type="button" class="btn save-button" (click)="save()">
+        {{ isEditMode ? 'Guardar Cambios' : 'Agregar Tarjeta' }}
+      </button>
+    </div>
+  </div>
+</div>
