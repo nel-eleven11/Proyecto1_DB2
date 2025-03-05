@@ -1,1 +1,26 @@
-<p>home-payments works!</p>
+<div class="payment-container">
+  <h2>Realizar Pago</h2>
+  <form [formGroup]="paymentForm" (ngSubmit)="submitPayment()">
+    <!-- Select para elegir la cuenta -->
+    <div class="form-group">
+      <label for="id_cuenta">Cuenta</label>
+      <select id="id_cuenta" formControlName="id_cuenta">
+        <option value="">Seleccione una cuenta</option>
+        <option *ngFor="let acc of accounts" [value]="acc.id_cuenta">
+          {{ acc.id_cuenta }} - {{ acc.tipo }}
+        </option>
+      </select>
+    </div>
+    <!-- Campo para Monto -->
+    <div class="form-group">
+      <label for="monto">Monto</label>
+      <input id="monto" type="number" formControlName="monto" placeholder="Ingrese el monto" />
+    </div>
+    <!-- Campo para Motivo -->
+    <div class="form-group">
+      <label for="motivo">Motivo</label>
+      <input id="motivo" type="text" formControlName="motivo" placeholder="Motivo del pago" />
+    </div>
+    <button type="submit">Realizar Pago</button>
+  </form>
+</div>
